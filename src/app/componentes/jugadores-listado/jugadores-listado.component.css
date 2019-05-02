@@ -1,0 +1,11 @@
+header{
+	display: contents;
+}
+
+li, a{
+	color: #fff;
+}
+
+li:hover {
+    opacity: 0.8;
+}

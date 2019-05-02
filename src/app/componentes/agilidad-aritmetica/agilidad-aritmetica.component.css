@@ -1,0 +1,39 @@
+li, h3, h1{
+	color: #fff;
+}
+
+h2{
+	color: rgba(255, 255, 255, 0.54);
+}
+
+ul{
+	list-style: none;
+}
+
+.btn-juego{
+    display: block;
+    color: #fff;
+    padding: 16px 36px;
+    font-size: 16px;
+    font-weight: 700;
+    background: #6f2b95;
+    line-height: 1.1;
+    margin-right: 7px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-bottom: 10px;
+}
+
+input{
+    width: 100% !important;
+}
+
+li{
+    margin-top: 5px;
+}
+
+.ganar{
+    font-size: 40px;
+}
+

@@ -8,7 +8,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+/*button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -16,7 +16,7 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
-}
+}*/
 
 /* Extra styles for the cancel button */
 .cancelbtn {
@@ -49,9 +49,9 @@ button {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgba(80,23,85,1);
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
+    border: 1px solid rgba(45,24,84,1);
     width: 98%; /* Could be more or less, depending on screen size */
 }
 
@@ -83,4 +83,18 @@ button {
     .cancelbtn, .signupbtn {
        width: 100%;
     }
+}
+
+p, label, input[type=checkbox]{
+    color:#fff;
+}
+
+.contenido{
+    line-height: 1.9;
+    color: #68647d;
+    margin-bottom: 50px;
+}
+
+.site-btn{
+    margin-right: 10px;
 }

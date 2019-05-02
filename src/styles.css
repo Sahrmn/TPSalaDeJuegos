@@ -1,5 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-body{
+/*body{
 	background: linear-gradient(45deg, #501755 0%, #2d1854 100%);
+}*/
+
+body{
+
+	background: rgba(80,23,85,1);
+	background: -moz-linear-gradient(left, rgba(80,23,85,1) 0%, rgba(45,24,84,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(80,23,85,1)), color-stop(100%, rgba(45,24,84,1)));
+	background: -webkit-linear-gradient(left, rgba(80,23,85,1) 0%, rgba(45,24,84,1) 100%);
+	background: -o-linear-gradient(left, rgba(80,23,85,1) 0%, rgba(45,24,84,1) 100%);
+	background: -ms-linear-gradient(left, rgba(80,23,85,1) 0%, rgba(45,24,84,1) 100%);
+	background: linear-gradient(to right, rgba(80,23,85,1) 0%, rgba(45,24,84,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#501755', endColorstr='#2d1854', GradientType=1 );
+
 }
+

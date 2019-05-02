@@ -48,7 +48,7 @@ color: white;
 	align-items: center;
 	justify-content: center;
 	background-position: top center;
-	margin-top: 50px;
+	/*margin-top: 50px;*/
 }
 
 .cab-item h2{
@@ -68,6 +68,17 @@ color: white;
 }
 
 .img-logo{
-	background-image: url("../../../assets/imagenes/logo_utn.png");
-	widows: 15%;
+	/*background-image: url("../../../assets/imagenes/logo_utn.png");*/
+	width: 10%;
+}
+
+.header-bar-warp {
+	background: #081624;
+	padding: 10px 15px 10px 15px !important;
+	-webkit-box-shadow: 0 0 9px 3px rgba(226, 30, 228, 0.24);
+	box-shadow: 0 0 9px 3px rgba(226, 30, 228, 0.24);
+}
+
+.header-section{
+	display: contents;
 }

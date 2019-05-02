@@ -3,12 +3,45 @@
 <input type="button" (click)="llamaServicePromesa()" class="btn btn-info" value="Pulsame Promesa" --> 
 
 <!-- Centered Pills -->
-<ul class="nav nav-pills nav-justified">
-    <li class="active"><a routerLink="/Principal">Sala de Juegos</a></li>
-    <li><a (click)="llamaService()">Servicio</a></li>
-    <li><a (click)="llamaServicePromesa()">Serv Promesa</a></li>
-    <li><a (click)="llamaServicePromesa()">Serv observable</a></li>
-  </ul>
+
+ <div class="container">
+ 	
+	<!--ul class="list-group">
+	    <li class="active list-group-item"><a routerLink="/Principal">Sala de Juegos</a></li>
+	    <li class="list-group-item"><a (click)="llamaService()">Servicio</a></li>
+	    <li class="list-group-item"><a (click)="llamaServicePromesa()">Serv Promesa</a></li>
+	    <li class="list-group-item"><a (click)="llamaServicePromesa()">Serv observable</a></li>
+	</ul-->
+	
+
+	<header class="header-section">
+    <div class="header-warp">
+      
+      <div class="header-bar-warp d-flex">
+        <!-- site logo -->
+        <a href="home.html" class="site-logo">
+          <img class="img-logo" alt="">
+        </a>
+        <nav class="top-nav-area w-100">
+          <div class="user-panel">
+            <a routerLink="">Mis Datos</a> / <a routerLink="">Salir</a>
+          </div>
+          <!-- Menu -->
+          <ul class="main-menu primary-menu">
+						<li><a routerLink="/Principal">Sala de Juegos</a>
+							<ul class="sub-menu">
+								<li><a (click)="llamaService()">Servicio</a></li>
+								<li><a (click)="llamaServicePromesa()">Serv Promesa</a></li>
+								<li><a (click)="llamaServicePromesa()">Serv observable</a></li>
+							</ul>
+						</li>
+			</ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+ </div>
   
 <app-listado-de-resultados [listado]="listadoParaCompartir"> </app-listado-de-resultados>
 

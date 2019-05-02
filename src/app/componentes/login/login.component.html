@@ -21,7 +21,7 @@
     </div>
   </div>
 </div-->
- <div class="container" >
+ <!--div class="container" >
   <div class="jumbotron" style="padding:50px;">
     <form action="return true;">
       <div class="imgcontainer">
@@ -54,4 +54,35 @@
      
     </form>
   </div>
-</div>
+</div-->
+
+<!-- Page top section -->
+  <section class="page-top-section set-bg" src="./assets/template/img/page-top-bg/4.jpg">
+    <div class="page-info">
+      <h2>LOGIN</h2>
+      <div class="site-breadcrumb">
+        <a href="">Home</a>  /
+        <span>Login</span>
+      </div>
+    </div>
+  </section>
+  <!-- Page top end-->
+
+  <!-- Contact page -->
+  <section class="contact-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <form class="contact-form">
+            <input type="text" [(ngModel)]="usuario" placeholder="Usuario">
+            <input type="password" [(ngModel)]="clave" placeholder="Clave">
+            <button class="site-btn" *ngIf="logeando"  (click)="MoverBarraDeProgreso()" >Ingresar<img src="img/icons/double-arrow.png" alt="#"/></button>
+            <button routerLink="/Registro" class="site-btn">Registrarse<img src="img/icons/double-arrow.png" alt="#"/></button>
+          </form>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact page end-->

@@ -1,6 +1,6 @@
 .imagenDeMenu{
-width: 80px;
-height: 70px;
+    width: 80px;
+    height: 70px;
 }
 
 .hero-text {
@@ -10,7 +10,7 @@ height: 70px;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #100000;
-    }
+}
 
 img{
 	width: 50%;
@@ -20,3 +20,4 @@ img{
 	display: flex;
 	justify-content: center;
 }
+

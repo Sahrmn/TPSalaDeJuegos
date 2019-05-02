@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="text-center">Piedra, Papel o Tijeras</h1>
+  <div class="row">
+    
+	  <div class="col-lg-4">
+	  	<button (click)="jugar('Piedra')"><img class="img-fluid rounded mx-auto d-block" src="../../../assets/imagenes/piedra.svg" alt="piedra"></button>
+	  </div>
+	  <div class="col-lg-4">
+	    <button (click)="jugar('Papel')"><img class="rounded mx-auto d-block" src="../../../assets/imagenes/papel.svg" alt="papel"></button>
+	  </div>
+	  <div class="col-lg-4">
+	  	<button (click)="jugar('Tijera')"><img class="rounded mx-auto d-block" src="../../../assets/imagenes/tijera.svg" alt="tijera"></button>
+	  </div>
+  </div>
+  <!--div class="row nuevo">
+  	<div class="col-lg-4"></div>
+  	<div class="col-lg-4">
+  		<button class="site-btn rounded mx-auto d-block">Nuevo Juego</button>	
+  	</div>
+  	<div class="col-lg-4"></div>
+  </div-->
+  <div class="row resultado">
+  	<div class="col-lg-4">
+  	</div>
+  	<div class="col-lg-4">
+	    <h3 class="text-center">{{respuesta}}</h3>
+  	</div>
+  	<div class="col-lg-4"></div>
+  </div>
+</div>

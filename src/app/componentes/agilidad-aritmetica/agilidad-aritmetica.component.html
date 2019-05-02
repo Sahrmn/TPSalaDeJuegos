@@ -1,38 +1,48 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!--app-menu></app-menu-->
 <!-- index.html -->
+<!-- Page Preloder -->
 
-
-<form name="juego">
-<ul>
-   <li>
-   Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-  
-  </li>
-  <li>
-   Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+<div class="container">
+  <div class="row">
     
-  </li>
-  <li>
-   Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-    Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-     
-   </li>
-  <li>
-    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
-  </li>
-  <li>
-    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo</button></h2>
-  </li>
-  <li>
-    <h2><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
+    <h1 class="text-center">Agilidad Aritmetica</h1>
+    <form name="juego">
+    <ul>
+       <li>
+       Primer número: <input [(ngModel)]="PrimerNum" placeholder="" name="primer" type="text" class="form-control" style="width:50%" readonly/>
+      
+      </li>
+      <li>
+       Operador: <input [(ngModel)]="Operador" placeholder="" name="operador" type="text" class="form-control" style="width:50%" readonly/>
+        
+      </li>
+      <li>
+       Segundo número: <input [(ngModel)]="SegundoNum" placeholder="" name="segundo" type="text" class="form-control" style="width:50%" readonly/>
+        
+      </li>
+      <li>
+        Respuesta: <input [(ngModel)]="numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="numero" class="form-control" autocomplete="off" style="width:50%"/>
+         
+       </li>
+      <li>
+        <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="site-btn">Verificar {{Tiempo}} </button></h2>
+      </li>
+      <li>
+        <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="site-btn">Nuevo</button></h2>
+      </li>
+      <li>
+        <h2 [hidden]="numeroIngresado != 0"><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
 
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-  </li>
-</ul>
+        <h3 class="ganar text-center" [hidden]="!gano">Adivinaste el número!</h3>
+        <h3 class="text-right" [hidden]="gano">Todavia no ganaste </h3>
+      </li>
+    </ul>
 
-</form>
+    </form>
+  </div>
+  <div class="col-lg-3"></div>
+  </div>
+</div>
