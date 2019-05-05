@@ -1,9 +1,46 @@
 <div class="container">
 		<h1 class="text-center">Ta Te Ti</h1>
-	<div class="row">
-		<ul id="tablero" [innerHTML]="tablero"></ul>
+	<div class="row row-tablero">
+		
+	
+	<ul>
+		<li>
+			<div (click)="tildar('0', '0')" class="cell">{{tableroVista[0][0]}}</div>
+		</li>
+		<li>
+			<div (click)="tildar('0', '1')" class="cell">{{tableroVista[0][1]}}</div>
+		</li>
+		<li>
+			<div (click)="tildar('0', '2')" class="cell">{{tableroVista[0][2]}}</div>
+		</li>
+		<li>
+			<div (click)="tildar('1', '0')" class="cell">{{tableroVista[1][0]}}</div>
+		</li>
+		<li>
+			<div (click)="tildar('1', '1')" class="cell">{{tableroVista[1][1]}}</div>
+		</li>
+		<li>
+			<div (click)="tildar('1', '2')" class="cell">{{tableroVista[1][2]}}</div>
+		</li>
+		<li>
+			<div (click)="tildar('2', '0')" class="cell">{{tableroVista[2][0]}}</div>
+		</li>
+		<li>
+			<div (click)="tildar('2', '1')" class="cell">{{tableroVista[2][1]}}</div>
+		</li>
+		<li>
+			<div (click)="tildar('2', '2')" class="cell">{{tableroVista[2][2]}}</div>
+		</li>
+	</ul>
+
+
 	</div>
 	<div class="row">
-		<button class="site-btn rounded mx-auto d-block">Juego Nuevo</button>
+		<button (click)="nuevo()" class="site-btn rounded mx-auto d-block">Juego Nuevo</button>
+	</div>
+	<div class="row">
+		<h3 class="ganar text-center" [hidden]="!ganoU">GANASTE!</h3>
+	    <h3 class="text-center" [hidden]="ganoU || ganoUI || empate">Todavia no ganaste</h3>
+	    <h3 class="text-center" [hidden]="!empate">EMPATE</h3>
 	</div>
 </div>
