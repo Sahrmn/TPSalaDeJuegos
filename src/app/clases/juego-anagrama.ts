@@ -7,7 +7,16 @@ export class JuegoAnagrama {
     {"palabra": "miniatura"},
     {"palabra": "arbol"},
     {"palabra": "residuo"},
-    {"palabra": "especialidad"}
+    {"palabra": "especialidad"},
+    {"palabra": "perro"},
+    {"palabra": "gato"},
+    {"palabra": "marioneta"},
+    {"palabra": "billetera"},
+    {"palabra": "llave"},
+    {"palabra": "botella"},
+    {"palabra": "lampara"},
+    {"palabra": "tarjeta"},
+    {"palabra": "elefante"}
 	]
 
 	elegirPalabra(){
@@ -19,6 +28,8 @@ export class JuegoAnagrama {
 		this.elegirPalabra();
 		let array_anagramas = this.FindAllPermutations(this.palabra);
 		let indice = Math.floor(Math.random()*array_anagramas.length); 
+		while(array_anagramas[indice] == this.palabra)
+			indice = Math.floor(Math.random()*array_anagramas.length); 
 		return array_anagramas[indice];
 	}
 	

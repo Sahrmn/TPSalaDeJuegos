@@ -18,9 +18,16 @@ export class TatetiComponent implements OnInit {
   ganoUI: boolean = false;
   empate: boolean = false;
   enUso: boolean = false;
+  puntaje: number = 0;
 
   constructor() { 
   	this.nuevoJuego = new Tateti();
+
+    let user = JSON.parse(localStorage.getItem('usuarioActual'));
+     if(!user.tateti)
+      this.puntaje = 0;
+     else
+      this.puntaje = user.tateti;
   }
 
   ngOnInit() {
@@ -58,6 +65,11 @@ export class TatetiComponent implements OnInit {
             //console.log(this.tablero);
             this.verificarTildar();
             this.enUso = false;
+
+            //verifico puntaje
+            let user = JSON.parse(localStorage.getItem('usuarioActual'));
+            this.puntaje = user.tateti;
+
           }, 1500);
         
       }

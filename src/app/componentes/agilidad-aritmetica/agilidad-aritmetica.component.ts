@@ -21,6 +21,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   Operador: string;
   numeroIngresado;
   gano: boolean = false;
+  puntaje: number = 0;
 
 
   ngOnInit() {
@@ -30,35 +31,42 @@ export class AgilidadAritmeticaComponent implements OnInit {
      this.Tiempo=5; 
      this.nuevoJuego = new JuegoAgilidad();
      console.info("Inicio agilidad");  
+     
+     let user = JSON.parse(localStorage.getItem('usuarioActual'));
+     if(!user.agilidad)
+      this.puntaje = 0;
+     else
+      this.puntaje = user.agilidad;
   }
 
 
 
 
   NuevoJuego() {
-    this.PrimerNum = 0;
-    this.SegundoNum = 0;
-    this.Operador = '';
-    this.numeroIngresado = '';
+      this.PrimerNum = 0;
+      this.SegundoNum = 0;
+      this.Operador = '';
+      this.numeroIngresado = '';
+      this.gano = false;
 
-    this.nuevoJuego.nuevaCuenta();
-    //console.log(this.nuevoJuego);
-    this.PrimerNum = this.nuevoJuego.primerNumero;
-    this.SegundoNum = this.nuevoJuego.segundoNumero;
-    this.Operador = this.nuevoJuego.operador;
-    
-    this.ocultarVerificar=false;
-    this.repetidor = setInterval(()=>{ 
+      this.nuevoJuego.nuevaCuenta();
+      //console.log(this.nuevoJuego);
+      this.PrimerNum = this.nuevoJuego.primerNumero;
+      this.SegundoNum = this.nuevoJuego.segundoNumero;
+      this.Operador = this.nuevoJuego.operador;
       
-      this.Tiempo--;
-      console.log("llego", this.Tiempo);
-      if(this.Tiempo==0 ) {
-        clearInterval(this.repetidor);
-        this.verificar();
-        this.ocultarVerificar=true;
-        this.Tiempo=5;
-      }
-      }, 900);
+      this.ocultarVerificar=false;
+      this.repetidor = setInterval(()=>{ 
+        
+        this.Tiempo--;
+        console.log("llego", this.Tiempo);
+        if(this.Tiempo==0 ) {
+          clearInterval(this.repetidor);
+          this.verificar();
+          this.ocultarVerificar=true;
+          this.Tiempo=5;
+        }
+        }, 900);
 
   }
 
@@ -98,6 +106,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       else
         user.agilidad = 0;
     }
+    this.puntaje = user.agilidad;
     localStorage.setItem('usuarioActual', JSON.stringify(user));
     //console.log(localStorage.getItem('usuarioActual'));
     //let resultados = [];
@@ -106,10 +115,10 @@ export class AgilidadAritmeticaComponent implements OnInit {
     //let resultados = JSON.parse(localStorage.getItem('resultados'));
     if(resultados){      
       let existe = false;
-      console.log("en existe resultados");
-      console.log(resultados.length);
+      //console.log("en existe resultados");
+      //console.log(resultados.length);
       for(var i = 0; i<resultados.length; i++){
-        console.log(resultados[i]);
+        //console.log(resultados[i]);
         if(resultados[i].nombre == user.nombre)
         {
           resultados[i].agilidad = user.agilidad;

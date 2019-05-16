@@ -1,5 +1,9 @@
-h1, h2, h3, label{
+h1, h2, h3, h4, label{
 	color: #fff;
+}
+
+.puntaje{
+	padding: 15px;
 }
 
 .botones{

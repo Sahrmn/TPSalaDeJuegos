@@ -12,15 +12,30 @@ export class AnagramaComponent implements OnInit {
   palabraUsuario: string = "";
   nuevoJuego: JuegoAnagrama;
   gano: boolean = false;
+  puntaje: number;
 
   constructor() { 
   	this.nuevoJuego = new JuegoAnagrama();
   	//var arrAllPermutations = this.nuevoJuego.FindAllPermutations(this.nuevoJuego.palabra);
   	//console.log(arrAllPermutations);
   	this.palabra = this.nuevoJuego.elegirAnagrama();
+
+    let user = JSON.parse(localStorage.getItem('usuarioActual'));
+     if(!user.anagrama)
+      this.puntaje = 0;
+     else
+      this.puntaje = user.anagrama;
   }
 
   ngOnInit() {
+  }
+
+  botonNuevo(){
+    let user = JSON.parse(localStorage.getItem('usuarioActual'));
+          user.anagrama--;
+          localStorage.setItem('usuarioActual', JSON.stringify(user));
+          this.puntaje = user.anagrama;
+    this.nuevo();
   }
 
   nuevo(){
@@ -31,6 +46,7 @@ export class AnagramaComponent implements OnInit {
   	let resultado = this.nuevoJuego.comparacion(this.palabra, this.palabraUsuario);
   	this.gano = resultado;
     if(this.gano){
+      this.palabraUsuario = "";
       this.setPuntos();
       this.nuevo();
     }
@@ -39,6 +55,7 @@ export class AnagramaComponent implements OnInit {
   setPuntos(){
     let user = JSON.parse(localStorage.getItem('usuarioActual'));
     //console.log(user);
+    //console.log(user.anagrama);
     if(user.anagrama){
       if(this.gano)
         user.anagrama++; 
@@ -50,7 +67,9 @@ export class AnagramaComponent implements OnInit {
       else
         user.anagrama = 0;
     }
+    this.puntaje = user.anagrama;
     localStorage.setItem('usuarioActual', JSON.stringify(user));
+    //console.log(this.puntaje);
 
     let resultados = [];
     resultados =  JSON.parse(localStorage.getItem('resultados'));

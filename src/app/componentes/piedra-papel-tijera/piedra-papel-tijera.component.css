@@ -1,4 +1,4 @@
-h1, h3{
+h1, h3, h4{
 	color: #fff;
 }
 
@@ -25,4 +25,19 @@ button:hover {
 
 .nuevo{
 	margin-top: 30px;
+}
+
+/*#papel, #tijera{
+	display: none;
+	width: 65%;
+}*/
+
+
+#piedra, #papel, #tijera{
+	width: 53%;
+	z-index: 999;
+	padding: 20px;
+	position: fixed;
+	top: 25%;
+	right: 12%;
 }

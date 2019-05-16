@@ -22,16 +22,18 @@
 		<div class="col-lg-4"></div>
 	</div>
 	<div class="row">
-		<div class="col-lg-6">
-			<button (click)="nuevo()" class="site-btn float-right rounded mx-auto d-block">Nueva Palabra</button>
+		<div class="col-lg-6 col-sm-6 col-md-6 col-6">
+			<button (click)="botonNuevo()" class="site-btn float-right rounded mx-auto d-block">Nueva Palabra</button>
 		</div>
-		<div class="col-lg-6">
+		<div class="col-lg-6 col-sm-6 col-md-6 col-6">
 			<button (click)="verificar()" class="site-btn float-left rounded mx-auto d-block">Verificar</button>
 		</div>
 		
 	</div>
 	<div class="row result">
-		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<h4>Puntaje Actual: {{puntaje}}</h4>
+		</div>
 		<div class="col-lg-4">
 			<h3 class="text-center exito" [hidden]="!gano">Adivinaste la palabra!</h3>
 		    <h3 class="text-center" [hidden]="gano">Todavia no ganaste </h3>

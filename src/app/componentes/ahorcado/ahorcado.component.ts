@@ -15,12 +15,19 @@ export class AhorcadoComponent implements OnInit {
   palabra_incompleta = "";
   contadorTurnos: number = 0;
   contadorFallos: number = 0;
+  puntaje: number = 0;
 
   constructor() {
   	this.nuevoJuego = new JuegoAhorcado();
   	this.generaABC();
   	this.iniciar();
   	//console.log(this.palabra_incompleta);
+
+  	let user = JSON.parse(localStorage.getItem('usuarioActual'));
+     if(!user.anagrama)
+      this.puntaje = 0;
+     else
+      this.puntaje = user.anagrama;
   }
 
   ngOnInit() {
@@ -118,6 +125,7 @@ export class AhorcadoComponent implements OnInit {
       else if(this.perdio)
         user.ahorcado = 0;
     }
+    this.puntaje = user.ahorcado;
     localStorage.setItem('usuarioActual', JSON.stringify(user));
     //console.log(localStorage.getItem('usuarioActual'));
     let resultados = [];

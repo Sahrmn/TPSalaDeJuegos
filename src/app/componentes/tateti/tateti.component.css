@@ -1,4 +1,4 @@
-h1, label, h3{
+h1, label, h3, h4{
 	color: #fff;
 }
 
@@ -8,6 +8,10 @@ h1, label, h3{
 
 .row-tablero{
     height: 250px;
+}
+
+.puntaje{
+	padding: 10px;
 }
 
 

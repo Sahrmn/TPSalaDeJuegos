@@ -14,11 +14,19 @@ export class AdivinaElNumeroComponent implements OnInit {
   Mensajes:string;
   contador:number;
   ocultarVerificar:boolean;
+  puntaje: number = 0;
  
   constructor() { 
     this.nuevoJuego = new JuegoAdivina();
     console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     this.ocultarVerificar=false;
+
+    //traigo puntaje
+    let user = JSON.parse(localStorage.getItem('usuarioActual'));
+     if(!user.adivina)
+      this.puntaje = 0;
+     else
+      this.puntaje = user.adivina;
   }
   generarnumero() {
     this.nuevoJuego.generarnumero();
@@ -40,13 +48,13 @@ export class AdivinaElNumeroComponent implements OnInit {
       let mensaje:string;
       switch (this.contador) {
         case 1:
-          mensaje="No, intento fallido, animo";
+          mensaje="Intento fallido";
           break;
           case 2:
-          mensaje="Te estas acercando...";
+          mensaje="Cerca...";
           break;
           case 3:
-          mensaje="No es, creí que la tercera era la vencida";
+          mensaje="Creí que la tercera era la vencida";
           break;
           case 4:
           mensaje="No era el "+this.nuevoJuego.numeroIngresado;
@@ -62,7 +70,7 @@ export class AdivinaElNumeroComponent implements OnInit {
             mensaje="Ya le erraste "+ this.contador+" veces";
           break;
       }
-      this.MostarMensaje("#"+this.contador+" "+mensaje+" ayuda :"+this.nuevoJuego.retornarAyuda());
+      this.MostarMensaje("#"+this.contador+" "+mensaje+"  AYUDA:"+this.nuevoJuego.retornarAyuda());
      
 
     }
@@ -85,7 +93,7 @@ export class AdivinaElNumeroComponent implements OnInit {
       x.className = x.className.replace("show", "");
       modelo.ocultarVerificar=false;
      }, 3000);
-    console.info("objeto",x);
+    //console.info("objeto",x);
   
    }
 
@@ -105,6 +113,7 @@ export class AdivinaElNumeroComponent implements OnInit {
       else
         user.adivina = 0;
     }
+    this.puntaje = user.adivina;
     localStorage.setItem('usuarioActual', JSON.stringify(user));
     
     let resultados = [];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoPiedraPapelTijera } from '../../clases/juego-piedra-papel-tijera';
+declare var $: any;
 
 @Component({
   selector: 'app-piedra-papel-tijera',
@@ -10,12 +11,23 @@ export class PiedraPapelTijeraComponent implements OnInit {
 
   nuevoJuego: JuegoPiedraPapelTijera;
   respuesta: string = 'Selecciona...';
+  puntaje: number = 0;
 
   constructor() {
   	this.nuevoJuego = new JuegoPiedraPapelTijera();
+
+    //traigo puntaje
+    let user = JSON.parse(localStorage.getItem('usuarioActual'));
+     if(!user.ppt)
+      this.puntaje = 0;
+     else
+      this.puntaje = user.ppt;
   }
 
   ngOnInit() {
+    document.getElementById('piedra').style.display = "none";
+    document.getElementById('papel').style.display = "none";
+    document.getElementById('tijera').style.display = "none";
   }
 
   jugar(eleccion){
@@ -25,7 +37,10 @@ export class PiedraPapelTijeraComponent implements OnInit {
   	this.nuevoJuego.tomarDecisionOrdenador();
   	//console.log(this.nuevoJuego.decisionOrdenador);
   	this.respuesta = this.nuevoJuego.logicaJuego(this.nuevoJuego.decisionUsuario, this.nuevoJuego.decisionOrdenador);
-  	console.log(this.respuesta);
+  	setTimeout(this.mostrarEleccionOrdenador(), 500);
+    this.mostrarEleccionOrdenador();
+    console.log(this.respuesta);
+
     this.setPuntos();
   }
 
@@ -43,6 +58,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
       else if(this.respuesta == "Gana el ordenador.")
         user.ppt = 0;
     }
+    this.puntaje = user.ppt;
     localStorage.setItem('usuarioActual', JSON.stringify(user));
     //console.log(localStorage.getItem('usuarioActual'));
     let resultados =  JSON.parse(localStorage.getItem('resultados'));
@@ -76,6 +92,38 @@ export class PiedraPapelTijeraComponent implements OnInit {
 
 
   }
+
+
+  mostrarEleccionOrdenador(){
+    let decision = this.nuevoJuego.decisionOrdenador;
+    //console.log(decision);
+    switch(decision){
+      case 'Piedra':
+        $('#piedra').fadeIn();
+
+        setTimeout(function(){
+          $('#piedra').fadeOut();          
+        },1000);
+      break;
+      case 'Papel':
+        $('#papel').fadeIn();
+        setTimeout(function(){
+          $('#papel').fadeOut();          
+        },1000);
+      break;
+      case 'Tijera':
+        $('#tijera').fadeIn();
+        setTimeout(function(){
+          $('#tijera').fadeOut();          
+        },1000);
+      break;
+      default:
+      break;
+    }
+  }
+
+  
+
 
 
 
