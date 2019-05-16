@@ -69,9 +69,11 @@ export class AgilidadAritmeticaComponent implements OnInit {
     if(this.numeroIngresado == this.nuevoJuego.respuesta)
     {
       this.gano = true;
+      this.setPuntos();
     }
     else{
       this.gano = false;
+      this.setPuntos();
     }
     console.log("gano? " + this.gano);
 
@@ -79,7 +81,62 @@ export class AgilidadAritmeticaComponent implements OnInit {
    
 
    
-  }  
+  }
+
+
+  setPuntos(){
+    let user = JSON.parse(localStorage.getItem('usuarioActual'));
+    //console.log(user);
+    if(user.agilidad){
+      if(this.gano)
+        user.agilidad++; 
+      else
+        user.agilidad--;
+    }else{
+      if(this.gano)
+        user.agilidad = 1;
+      else
+        user.agilidad = 0;
+    }
+    localStorage.setItem('usuarioActual', JSON.stringify(user));
+    //console.log(localStorage.getItem('usuarioActual'));
+    //let resultados = [];
+    let resultados =  JSON.parse(localStorage.getItem('resultados'));
+    //console.log(resultados);
+    //let resultados = JSON.parse(localStorage.getItem('resultados'));
+    if(resultados){      
+      let existe = false;
+      console.log("en existe resultados");
+      console.log(resultados.length);
+      for(var i = 0; i<resultados.length; i++){
+        console.log(resultados[i]);
+        if(resultados[i].nombre == user.nombre)
+        {
+          resultados[i].agilidad = user.agilidad;
+          existe = true;
+          break;
+        }
+      }
+
+      if(!existe){
+        resultados.push(user);
+      }
+    }
+    else{
+      resultados = [];
+      resultados.push(user);
+    }
+    localStorage.setItem('resultados', JSON.stringify(resultados));
+    console.log(JSON.parse(localStorage.getItem('resultados')));
+    
+  }
+
+
+
+
+  
+
+
 
 
 

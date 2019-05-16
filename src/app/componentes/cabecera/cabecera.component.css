@@ -1,3 +1,13 @@
+.pad0{
+	padding: 0;
+	padding-right: 20px;
+}
+
+.main-menu li .sub-menu{
+	top: 193% !important;
+	padding: 10px 0;
+}
+
 .panel
 {
     height: 200px;

@@ -106,6 +106,50 @@ export class Tateti {
       this.empate = true;
     }
     console.log(this.result);
+    this.setPuntos();
+  }
+
+  setPuntos(){
+    let user = JSON.parse(localStorage.getItem('usuarioActual'));
+    //console.log(user);
+    if(user.tateti){
+      if(this.ganoUser)
+        user.tateti++; 
+      else if(this.ganoUI)
+        user.tateti--;
+    }else{
+      if(this.ganoUser)
+        user.tateti = 1;
+      else if(this.ganoUI)
+        user.tateti = 0;
+    }
+    localStorage.setItem('usuarioActual', JSON.stringify(user));
+    //console.log(localStorage.getItem('usuarioActual'));
+    let resultados = [];
+    resultados =  JSON.parse(localStorage.getItem('resultados'));
+    //console.log(resultados);
+    //let resultados = JSON.parse(localStorage.getItem('resultados'));
+    if(resultados){      
+      let existe = false;
+      for(var i = 0; i<resultados.length; i++){
+        if(resultados[i].nombre == user.nombre)
+        {
+          resultados[i].tateti = user.tateti;
+          existe = true;
+          break;
+        }
+      }
+
+      if(!existe){
+        resultados.push(user);
+      }
+    }
+    else{
+      resultados = [];
+      resultados.push(user);
+    }
+    localStorage.setItem('resultados', JSON.stringify(resultados));
+    console.log(JSON.parse(localStorage.getItem('resultados')));
   }
 
 

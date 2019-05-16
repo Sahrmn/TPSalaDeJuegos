@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Jugador } from '../../clases/jugador';
 
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,11 +14,12 @@ export class LoginComponent implements OnInit {
 
   private subscription: Subscription;
   usuario = '';
-  clave= '';
+  clave = '';
   progreso: number;
-  progresoMensaje="esperando..."; 
+  progresoMensaje = "esperando..."; 
   logeando=true;
   ProgresoDeAncho:string;
+  error: boolean = false;
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
@@ -36,6 +39,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/Principal']);
     }
   }
+
+  /*
   MoverBarraDeProgreso() {
     
     this.logeando=false;
@@ -76,6 +81,31 @@ export class LoginComponent implements OnInit {
       }     
     });
     //this.logeando=true;
+  }
+  */
+
+  logear(){
+    let usuarios = JSON.parse(localStorage.getItem("usuariosRegistrados"));
+    let flag = false;
+    for(let usuario of usuarios)
+    {
+      if(usuario.email == this.usuario && usuario.clave == this.clave)
+      {
+        let user: Jugador = new Jugador();
+        user.nombre = usuario.nombre;
+        user.email = usuario.email;
+        console.log("entramos..");
+
+        localStorage.setItem("usuarioActual", JSON.stringify(user));
+        this.router.navigate(['/Principal']);
+        flag = true;
+      }
+    }
+    if(!flag)
+      {
+        //document.getElementById('msj').html = "";
+        this.error = true;
+      }
   }
 
 }

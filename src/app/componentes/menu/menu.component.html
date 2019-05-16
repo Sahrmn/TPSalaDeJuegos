@@ -64,7 +64,7 @@
         </a>
         <nav class="top-nav-area w-100">
           <div class="user-panel">
-            <a routerLink="">Mis Datos</a> / <a routerLink="">Salir</a>
+            <a routerLink="">Mis Datos</a> / <a (click)="salir()">Salir</a>
           </div>
           <!-- Menu -->
           <ul class="main-menu primary-menu">
@@ -72,9 +72,11 @@
             <li><a routerLink="/Juegos">Juegos</a>
               <ul class="sub-menu">
                 <li><a (click)="Juego('Adivina')">Adivina</a></li>
-                <li><a (click)="Juego('Agilidad')">Agilidad</a></li>
                 <li><a (click)="Juego('ppt')">Piedra, Papel o Tijeras</a></li>
                 <li><a (click)="Juego('anagrama')">Anagrama</a></li>
+                <li><a (click)="Juego('Agilidad')">Agilidad</a></li>
+                <li><a (click)="Juego('ahorcado')">Ahorcado</a></li>
+                <li><a (click)="Juego('tateti')">Ta Te Ti</a></li>
                 <li><a (click)="Juego('AdivinaMasListado')">Adivina+listado</a></li>
                 <li><a (click)="Juego('AgilidadaMasListado')">Agilidad+listado</a></li>
               </ul>

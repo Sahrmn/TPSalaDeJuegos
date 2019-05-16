@@ -14,10 +14,15 @@
 
 img{
 	width: 50%;
+    height: 50%;
 }
 
 .blog-thumb{
 	display: flex;
 	justify-content: center;
+}
+
+.blanco{
+    color: #fff;
 }
 

@@ -17,6 +17,7 @@ export class TatetiComponent implements OnInit {
   ganoU: boolean = false;
   ganoUI: boolean = false;
   empate: boolean = false;
+  enUso: boolean = false;
 
   constructor() { 
   	this.nuevoJuego = new Tateti();
@@ -41,8 +42,9 @@ export class TatetiComponent implements OnInit {
   tildar(number1, number2){
     if(this.tableroVista[number1][number2] == "")
     {
-      if(this.ganoU != true && this.empate != true && this.ganoUI != true)
+      if(this.ganoU != true && this.empate != true && this.ganoUI != true && this.enUso == false)
       {
+        this.enUso = true;
         this.nuevoJuego.userMoves(number1, number2);
         this.tablero = this.nuevoJuego.tablero;
         //console.log(this.tablero);
@@ -55,7 +57,7 @@ export class TatetiComponent implements OnInit {
             this.tablero = this.nuevoJuego.tablero;
             //console.log(this.tablero);
             this.verificarTildar();
-            
+            this.enUso = false;
           }, 1500);
         
       }
@@ -96,6 +98,8 @@ export class TatetiComponent implements OnInit {
         }
 
   }
+
+  
 
 
 

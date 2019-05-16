@@ -55,6 +55,10 @@ import { InputJugadoresComponent } from './componentes/input-jugadores/input-jug
 import { SexoPipe } from './pipes/sexo.pipe';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
+import { ReactiveFormsModule, Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+
+import { CommonModule } from '@angular/common'; //added this line to your module
 
 
 //https://laboratorio4-3e44a.firebaseapp.com/
@@ -86,13 +90,16 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     InputJugadoresComponent,
     SexoPipe,
     PiedraPapelTijeraComponent,
-    TatetiComponent
+    TatetiComponent,
+    AhorcadoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RuteandoModule,
     HttpModule,
+    CommonModule,
+    ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     })

@@ -43,16 +43,16 @@ export class AdivinaElNumeroComponent implements OnInit {
           mensaje="No, intento fallido, animo";
           break;
           case 2:
-          mensaje="No,Te estaras Acercando???";
+          mensaje="Te estas acercando...";
           break;
           case 3:
-          mensaje="No es, Yo crei que la tercera era la vencida.";
+          mensaje="No es, creí que la tercera era la vencida";
           break;
           case 4:
-          mensaje="No era el  "+this.nuevoJuego.numeroIngresado;
+          mensaje="No era el "+this.nuevoJuego.numeroIngresado;
           break;
           case 5:
-          mensaje=" intentos y nada.";
+          mensaje= "No pasa nada...";
           break;
           case 6:
           mensaje="Afortunado en el amor";
@@ -66,7 +66,9 @@ export class AdivinaElNumeroComponent implements OnInit {
      
 
     }
-    console.info("numero Secreto:",this.nuevoJuego.gano);  
+    //console.info("numero Secreto:",this.nuevoJuego.gano);  
+    if(this.nuevoJuego.gano)
+      this.setPuntos();
   }  
 
   MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
@@ -85,8 +87,51 @@ export class AdivinaElNumeroComponent implements OnInit {
      }, 3000);
     console.info("objeto",x);
   
-   }  
+   }
+
   ngOnInit() {
+  }
+
+  setPuntos(){
+    let user = JSON.parse(localStorage.getItem('usuarioActual'));
+    if(user.adivina){
+      if(this.nuevoJuego.gano)
+        user.adivina++; 
+      else
+        user.adivina--;
+    }else{
+      if(this.nuevoJuego.gano)
+        user.adivina = 1;
+      else
+        user.adivina = 0;
+    }
+    localStorage.setItem('usuarioActual', JSON.stringify(user));
+    
+    let resultados = [];
+    resultados =  JSON.parse(localStorage.getItem('resultados'));
+    //console.log(resultados);
+    //let resultados = JSON.parse(localStorage.getItem('resultados'));
+    if(resultados){      
+      let existe = false;
+      for(var i = 0; i<resultados.length; i++){
+        if(resultados[i].nombre == user.nombre)
+        {
+          resultados[i].adivina = user.adivina;
+          existe = true;
+          break;
+        }
+      }
+
+      if(!existe){
+        resultados.push(user);
+      }
+    }
+    else{
+      resultados = [];
+      resultados.push(user);
+    }
+    localStorage.setItem('resultados', JSON.stringify(resultados));
+    console.log(JSON.parse(localStorage.getItem('resultados')));
   }
 
 }

@@ -20,7 +20,7 @@ export class JugadoresListadoComponent implements OnInit {
   ngOnInit() {
   }
 
-
+/*
   TraerTodos(){
     //alert("totos");
     console.log("llamo TraerTodos");
@@ -44,5 +44,6 @@ export class JugadoresListadoComponent implements OnInit {
 
     })
   }
+  */
 
 }

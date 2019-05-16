@@ -75,10 +75,11 @@
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
           <form class="contact-form">
-            <input type="text" [(ngModel)]="usuario" placeholder="Usuario">
-            <input type="password" [(ngModel)]="clave" placeholder="Clave">
-            <button class="site-btn" *ngIf="logeando"  (click)="MoverBarraDeProgreso()" >Ingresar<img src="img/icons/double-arrow.png" alt="#"/></button>
-            <button routerLink="/Registro" class="site-btn">Registrarse<img src="img/icons/double-arrow.png" alt="#"/></button>
+            <input type="text" [(ngModel)]="usuario" name="usuario" placeholder="Email">
+            <input type="password" [(ngModel)]="clave" name="clave" placeholder="Clave">
+            <p id="msj" class="blanco" [hidden]="!error">Datos incorrectos</p>
+            <button class="site-btn" *ngIf="logeando"  (click)="logear()" >Ingresar<img src="../../../assets/imagenes/icons/double-arrow.png" alt="#"/></button>
+            <button routerLink="/Registro" class="site-btn">Registrarse<img src="../../../assets/imagenes/icons/double-arrow.png" alt="#"/></button>
           </form>
         </div>
         <div class="col-lg-2"></div>

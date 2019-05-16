@@ -1,3 +1,9 @@
+.alert{
+    background-color: blueviolet;
+    width: 40%;
+    border-radius: 2px;
+}
+
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -59,10 +65,11 @@ input[type=text], input[type=password] {
 .close {
     position: absolute;
     right: 35px;
-    top: 15px;
+    top: 100px;
     color: #000;
     font-size: 40px;
     font-weight: bold;
+    z-index: 9;
 }
 
 .close:hover,

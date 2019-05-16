@@ -28,6 +28,12 @@ export class MenuComponent implements OnInit {
       case 'anagrama':
           this.router.navigate(['/Juegos/anagrama']);
         break;
+      case 'ahorcado':
+          this.router.navigate(['/Juegos/ahorcado']);
+        break;
+      case 'tateti':
+          this.router.navigate(['/Juegos/tateti']);
+        break;
       case 'AdivinaMasListado':
           this.router.navigate(['/Juegos/AdivinaMasListado']);
         break;
@@ -35,6 +41,11 @@ export class MenuComponent implements OnInit {
           this.router.navigate(['/Juegos/AgilidadaMasListado']);
         break;
     }
+  }
+
+  salir(){
+    localStorage.removeItem("usuarioActual");
+    this.router.navigate(['Principal']);
   }
 
 }

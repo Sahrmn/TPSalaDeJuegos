@@ -21,9 +21,20 @@
           <img class="img-logo" alt="" src="../../../assets/imagenes/logo_utn.png" >
         </a>
         <nav class="top-nav-area w-100">
-          <div class="user-panel">
+          <div [hidden]="nombreUsuario" class="user-panel">
             <a routerLink="/Login">Login</a> / <a routerLink="/Registro">Register</a>
           </div>
+          <div [hidden]="!nombreUsuario" class="user-panel">
+            <!--a routerLink="/Login">{{nombreUsuario}}</a-->
+            <ul class="main-menu primary-menu">
+            <li><a class="pad0">{{nombreUsuario}}</a>
+              <ul class="sub-menu">
+                <li><a (click)="salir()" >Salir</a></li>
+              </ul>
+            </li>
+            </ul>
+          </div>
+
           <!-- Menu -->
           <!--ul class="main-menu primary-menu">
             <li><a href="home.html">Home</a></li>
